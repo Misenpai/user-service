@@ -3,14 +3,14 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+  provider = "mysql"
+  url      = env("DATABASE_URL") // Make sure this points to your MySQL database
 }
 
 model User {
-  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  id         Int    @id @default(autoincrement())
   username   String
   employeeId String
-  empClass    String
+  empClass   String
   projectKey String
 }
